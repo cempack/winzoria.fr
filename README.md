@@ -1,36 +1,27 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<div style="display: flex; align-items: center;">
+    <img src="logo.png" alt="Logo" width="80" style="margin-right: 15px;">
+    <h1 style="margin-top: 25px; font-size:30px;">Winzoria</h1>
+</div>
 
-## Getting Started
+## Technologies utilisées
 
-First, run the development server:
+Ce site web est construit avec les technologies suivantes :
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Next.js
+- React
+- Drizzle ORM
+- Tailwind CSS
+- TypeScript
+- Shadcn/ui
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## À propos du serveur
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Winzoria est un serveur Minecraft axé sur le PvP Faction. Nous nous efforçons de fournir une expérience de jeu équitable, où les achats en jeu n'offrent pas d'avantages compétitifs. Rejoignez-nous pour une expérience de jeu unique et passionnante.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Licence
 
-## Learn More
+Le code source de ce site web n'est pas destiné à être réutilisé. Pour plus d'informations, veuillez contacter le propriétaire.
 
-To learn more about Next.js, take a look at the following resources:
+## Copyright
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+© [Cempack](https://elliotmoreau.fr). Tous droits réservés.
