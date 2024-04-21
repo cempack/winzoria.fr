@@ -1,3 +1,6 @@
+import { NavBar } from "@/components/navbar/navbar";
+import { ThemeProvider } from "@/components/theme-provider";
+import { Toaster } from "@/components/ui/toaster";
 import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 import { ViewTransitions } from "next-view-transitions";
@@ -23,7 +26,16 @@ export default function RootLayout({
             fontSans.variable
           )}
         >
-          {children}
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <NavBar />
+            {children}
+            <Toaster />
+          </ThemeProvider>
         </body>
       </html>
     </ViewTransitions>
