@@ -15,7 +15,8 @@ export default function Rules() {
                                 <h3 className="text-xl font-bold mb-2">Article 1.1 :</h3>
                                 <p className="text-gray-700 dark:text-gray-400 leading-relaxed">
                                     Les pseudos doivent pouvoir être facilement mentionnable, vous devez donc les
-                                    modifier. Si cela n'est pas fais, le staff se réserve le droit de le modifier lui
+                                    modifier. Si cela n&apos;est pas fais, le staff se réserve le droit de le modifier
+                                    lui
                                     même.
                                 </p>
                             </article>
@@ -61,14 +62,15 @@ export default function Rules() {
                                 className="border-l-4 border-primary-500 bg-gray-100 dark:bg-gray-800 p-6 rounded-md shadow-md">
                                 <h3 className="text-xl font-bold mb-2">Article 2.4 :</h3>
                                 <p className="text-gray-700 dark:text-gray-400 leading-relaxed">
-                                    Le spam n'est pas admis sur ce serveur.
+                                    Le spam n&apos;est pas admis sur ce serveur.
                                 </p>
                             </article>
                             <article
                                 className="border-l-4 border-primary-500 bg-gray-100 dark:bg-gray-800 p-6 rounded-md shadow-md">
                                 <h3 className="text-xl font-bold mb-2">Article 2.5 :</h3>
                                 <p className="text-gray-700 dark:text-gray-400 leading-relaxed">
-                                    Tous les types d'insultes sont sanctionnés ici (autant envers le serveur qu'envers
+                                    Tous les types d&apos;insultes sont sanctionnés ici (autant envers le serveur
+                                    qu&apos;envers
                                     la communauté).
                                 </p>
                             </article>
@@ -83,7 +85,7 @@ export default function Rules() {
                                 className="border-l-4 border-primary-500 bg-gray-100 dark:bg-gray-800 p-6 rounded-md shadow-md">
                                 <h3 className="text-xl font-bold mb-2">Article 3.2 :</h3>
                                 <p className="text-gray-700 dark:text-gray-400 leading-relaxed">
-                                    L'utilisation de soundboard est strictement interdite.
+                                    L&apos;utilisation de soundboard est strictement interdite.
                                 </p>
                             </article>
                             <article
@@ -105,7 +107,7 @@ export default function Rules() {
                                 className="border-l-4 border-primary-500 bg-gray-100 dark:bg-gray-800 p-6 rounded-md shadow-md">
                                 <h3 className="text-xl font-bold mb-2">Article 4.2 :</h3>
                                 <p className="text-gray-700 dark:text-gray-400 leading-relaxed">
-                                    Aucune publicité n'est autorisée sauf si un des @Créateur vous y a autorisé.
+                                    Aucune publicité n&apos;est autorisée sauf si un des @Créateur vous y a autorisé.
                                 </p>
                             </article>
                             <article
@@ -125,7 +127,7 @@ export default function Rules() {
                                 className="border-l-4 border-primary-500 bg-gray-100 dark:bg-gray-800 p-6 rounded-md shadow-md">
                                 <h3 className="text-xl font-bold mb-2">Article 1.1 :</h3>
                                 <p className="text-gray-700 dark:text-gray-400 leading-relaxed">
-                                    Les règles textuelles du discord s'applique aussi en jeu.
+                                    Les règles textuelles du discord s&apos;applique aussi en jeu.
                                 </p>
                             </article>
                             <article
@@ -139,8 +141,9 @@ export default function Rules() {
                                 className="border-l-4 border-primary-500 bg-gray-100 dark:bg-gray-800 p-6 rounded-md shadow-md">
                                 <h3 className="text-xl font-bold mb-2">Article 2.1 :</h3>
                                 <p className="text-gray-700 dark:text-gray-400 leading-relaxed">
-                                    L'utilisation de bug et use-bug est interdite, à l'exeption du use-bug ender pearl
-                                    qui fait l'exception ici.
+                                    L&apos;utilisation de bug et use-bug est interdite, à l&apos;exeption du use-bug
+                                    ender pearl
+                                    qui fait l&apos;exception ici.
                                 </p>
                             </article>
                             <article
@@ -155,14 +158,14 @@ export default function Rules() {
                                 className="border-l-4 border-primary-500 bg-gray-100 dark:bg-gray-800 p-6 rounded-md shadow-md">
                                 <h3 className="text-xl font-bold mb-2">Article 2.3 :</h3>
                                 <p className="text-gray-700 dark:text-gray-400 leading-relaxed">
-                                    L'utilisation de tout type de cheat est interdit et bannissable.
+                                    L&apos;utilisation de tout type de cheat est interdit et bannissable.
                                 </p>
                             </article>
                             <article
                                 className="border-l-4 border-primary-500 bg-gray-100 dark:bg-gray-800 p-6 rounded-md shadow-md">
                                 <h3 className="text-xl font-bold mb-2">Article 2.4 :</h3>
                                 <p className="text-gray-700 dark:text-gray-400 leading-relaxed">
-                                    L'utilisation excessive de la commande /report sera sanctionnée.
+                                    L&apos;utilisation excessive de la commande /report sera sanctionnée.
                                 </p>
                             </article>
                             <article
@@ -218,8 +221,9 @@ export default function Rules() {
                                 className="border-l-4 border-primary-500 bg-gray-100 dark:bg-gray-800 p-6 rounded-md shadow-md">
                                 <h3 className="text-xl font-bold mb-2">Article 7.1 :</h3>
                                 <p className="text-gray-700 dark:text-gray-400 leading-relaxed">
-                                    Les champignons d'eau et de lave dépassant les 10 couches sont interdits et
-                                    entraineront des sanctions envers le chef de faction ainsi qu'un cut du problème.
+                                    Les champignons d&apos;eau et de lave dépassant les 10 couches sont interdits et
+                                    entraineront des sanctions envers le chef de faction ainsi qu&apos;un cut du
+                                    problème.
                                 </p>
                             </article>
                             <div>
@@ -256,7 +260,7 @@ export default function Rules() {
                                         className="border-l-4 border-primary-500 bg-gray-100 dark:bg-gray-800 p-6 rounded-md shadow-md">
                                         <h3 className="text-xl font-bold mb-2">Article 1.1 :</h3>
                                         <p className="text-gray-700 dark:text-gray-400 leading-relaxed">
-                                            La limite de claim d'avant-poste est de 2 en première ligne.
+                                            La limite de claim d&apos;avant-poste est de 2 en première ligne.
                                         </p>
                                     </article>
                                     <article
