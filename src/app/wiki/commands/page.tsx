@@ -139,7 +139,8 @@ export default function Commands() {
                     <Card>
                         <CardHeader>
                             <CardTitle>Commandes Factions</CardTitle>
-                            <CardDescription>Les commandes factions sont des commandes qui sont permette d'intéragir
+                            <CardDescription>Les commandes factions sont des commandes qui sont permette
+                                d&apos;intéragir
                                 avec le plugin faction.</CardDescription>
                         </CardHeader>
                         <CardContent className="space-y-4">
