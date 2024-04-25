@@ -4,7 +4,7 @@ import {Tabs, TabsContent, TabsList, TabsTrigger,} from "@/components/ui/tabs"
 export default function Assets() {
     return (
         <div className="flex min-h-screen w-full flex-col">
-            <Tabs defaultValue="food" className="w-full">
+            <Tabs defaultValue="speed" className="w-full">
                 <TabsList className="grid w-full grid-cols-3 gap-1">
                     <TabsTrigger value="speed">Vitesse</TabsTrigger>
                     <TabsTrigger value="resistance">Résistance</TabsTrigger>

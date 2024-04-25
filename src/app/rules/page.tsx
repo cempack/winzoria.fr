@@ -2,8 +2,8 @@ export default function Rules() {
     return (
         <main className="bg-primary-foreground text-gray-900 dark:text-gray-50 font-sans">
             <div className="max-w-4xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-                <h1 className="text-4xl font-bold mb-8">Règlement de Winzoria :</h1>
-                <p className="text-gray-700 dark:text-gray-400 leading-relaxed">
+                <h1 className="text-4xl font-bold mb-2">Règlement de Winzoria :</h1>
+                <p className="text-gray-700 dark:text-gray-400 leading-relaxed mb-8">
                     Le règlement est évolutif, il peut être mis à jour à tout moment.
                 </p>
                 <div className="space-y-12">
@@ -115,7 +115,8 @@ export default function Rules() {
                                 <h3 className="text-xl font-bold mb-2">Article 4.3 :</h3>
                                 <p className="text-gray-700 dark:text-gray-400 leading-relaxed">
                                     Vous devez bien évidements respecter les T.O.S de discord
-                                    (https://discordapp.com/terms).
+                                    (<a target="_blank"
+                                        href="https://discordapp.com/terms">https://discordapp.com/terms</a>).
                                 </p>
                             </article>
                         </div>
