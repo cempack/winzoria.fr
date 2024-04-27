@@ -77,55 +77,69 @@ export const NavBar = () => {
                     </SheetTrigger>
                     <SheetContent side="left">
                         <nav className="grid gap-6 text-lg font-medium">
-                            <Link
-                                href="/"
-                                className="flex items-center gap-2 text-lg font-semibold"
-                            >
-                                <Logo size={40}/>
-                                <span className="sr-only"></span>
-                            </Link>
-                            <Link
-                                href="/"
-                                className="flex flex-row items-center gap-[6px] text-muted-foreground transition-colors hover:text-foreground"
-                            >
-                                <Home size={18}/>
-                                Accueil
-                            </Link>
-                            <Link
-                                href="/blog"
-                                className="flex flex-row items-center gap-[6px] text-muted-foreground transition-colors hover:text-foreground"
-                            >
-                                <Newspaper size={18}/>
-                                Blog
-                            </Link>
-                            <Link
-                                href="/wiki"
-                                className="flex flex-row items-center gap-[6px] text-muted-foreground transition-colors hover:text-foreground"
-                            >
-                                <BookOpenText size={18}/>
-                                Wiki
-                            </Link>
-                            <Link
-                                href="/rules"
-                                className="flex flex-row items-center gap-[6px] text-muted-foreground transition-colors hover:text-foreground"
-                            >
-                                <Scale size={18}/>
-                                Règlement
-                            </Link>
-                            <Link
-                                href="#"
-                                className="flex flex-row items-center gap-[6px] text-muted-foreground transition-colors hover:text-foreground"
-                            >
-                                <Sparkles size={18}/>
-                                Vote
-                            </Link>
-                            <Link
-                                href="#"
-                                className="flex flex-row items-center gap-[6px] text-muted-foreground transition-colors hover:text-foreground"
-                            >
-                                <Users size={18}/>
-                                Staff
-                            </Link>
+                            <SheetTrigger asChild>
+                                <Link
+                                    href="/"
+                                    className="flex items-center gap-2 text-lg font-semibold"
+                                >
+                                    <Logo size={40}/>
+                                    <span className="sr-only"></span>
+                                </Link>
+                            </SheetTrigger>
+                            <SheetTrigger asChild>
+                                <Link
+                                    href="/"
+                                    className="flex flex-row items-center gap-[6px] text-muted-foreground transition-colors hover:text-foreground"
+                                >
+                                    <Home size={18}/>
+                                    Accueil
+                                </Link>
+                            </SheetTrigger>
+                            <SheetTrigger asChild>
+                                <Link
+                                    href="/blog"
+                                    className="flex flex-row items-center gap-[6px] text-muted-foreground transition-colors hover:text-foreground"
+                                >
+                                    <Newspaper size={18}/>
+                                    Blog
+                                </Link>
+                            </SheetTrigger>
+                            <SheetTrigger asChild>
+                                <Link
+                                    href="/wiki"
+                                    className="flex flex-row items-center gap-[6px] text-muted-foreground transition-colors hover:text-foreground"
+                                >
+                                    <BookOpenText size={18}/>
+                                    Wiki
+                                </Link>
+                            </SheetTrigger>
+                            <SheetTrigger asChild>
+                                <Link
+                                    href="/rules"
+                                    className="flex flex-row items-center gap-[6px] text-muted-foreground transition-colors hover:text-foreground"
+                                >
+                                    <Scale size={18}/>
+                                    Règlement
+                                </Link>
+                            </SheetTrigger>
+                            <SheetTrigger asChild>
+                                <Link
+                                    href="/vote"
+                                    className="flex flex-row items-center gap-[6px] text-muted-foreground transition-colors hover:text-foreground"
+                                >
+                                    <Sparkles size={18}/>
+                                    Vote
+                                </Link>
+                            </SheetTrigger>
+                            <SheetTrigger asChild>
+                                <Link
+                                    href="/staff"
+                                    className="flex flex-row items-center gap-[6px] text-muted-foreground transition-colors hover:text-foreground"
+                                >
+                                    <Users size={18}/>
+                                    Staff
+                                </Link>
+                            </SheetTrigger>
                         </nav>
                     </SheetContent>
                 </Sheet>
