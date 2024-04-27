@@ -3,9 +3,17 @@
 const MOJANG_USERID_URL = 'https://api.mojang.com/users/profiles/minecraft/';
 const CRAFTAR_SKIN_URL = 'https://crafatar.com/renders/head/';
 
+// Create a cache object
+const cache: { [key: string]: string } = {};
+
 export const fetchSkin = async (username: string) => {
     if (!username) {
         throw new Error('Username is required');
+    }
+
+    // If the username is in the cache, return the cached data
+    if (cache[username]) {
+        return cache[username];
     }
 
     // Fetch the user ID for the given username
@@ -18,5 +26,10 @@ export const fetchSkin = async (username: string) => {
     const userId = userIdData.id;
 
     // Use the Crafatar API to get an image of the player's skin
-    return `${CRAFTAR_SKIN_URL}${userId}.png`;
+    const skinUrl = `${CRAFTAR_SKIN_URL}${userId}.png`;
+
+    // Store the skin URL in the cache
+    cache[username] = skinUrl;
+
+    return skinUrl;
 };

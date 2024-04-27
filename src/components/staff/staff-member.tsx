@@ -2,7 +2,6 @@
 
 import {Suspense, useCallback, useEffect, useState} from 'react';
 import {fetchSkin} from "@/lib/fetchSkin";
-import StaffMemberSkeleton from "@/components/staff/skeletons/staff-member";
 import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@/components/ui/card";
 import {Badge} from "@/components/ui/badge";
 import Image from "next/image";
@@ -36,7 +35,7 @@ const StaffMember = ({username, role}: { username: string; role: Role }) => {
 
     return (
         <div>
-            <Suspense fallback={<StaffMemberSkeleton/>}>
+            <Suspense>
                 {error && <div style={{color: 'red'}}>{error}</div>}
 
                 {imageUrl && (
