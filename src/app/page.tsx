@@ -8,7 +8,7 @@ export default function Home() {
             <main className="flex h-[calc(100vh-_4rem)] flex-1 flex-col gap-4 p-4 md:gap-8">
                 <header className="h-full relative flex flex-col items-center justify-center z-10  backdrop-blur-sm">
                     <div
-                        className="w-full h-full mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-10 flex flex-col items-center justify-center">
+                        className="w-full h-full mx-auto px-4 sm:px-6 lg:px-8 md:pt-24 pb-10 flex flex-col items-center justify-center">
                         <div className="xl:mt-[-10%] flex justify-center">
                             <a
                                 className="inline-flex items-center gap-x-2 bg-primary-foreground border border-primary-foreground text-sm text-primary p-1 ps-3 rounded-full transition hover:border-primary"

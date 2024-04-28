@@ -4,6 +4,7 @@ import {zodResolver} from "@hookform/resolvers/zod"
 import {useForm} from "react-hook-form"
 import {z} from "zod"
 
+
 import {Button} from "@/components/ui/button"
 import {Form, FormControl, FormField, FormItem, FormLabel, FormMessage,} from "@/components/ui/form"
 import {Input} from "@/components/ui/input"
@@ -11,7 +12,9 @@ import checkUsername from "@/lib/checkUsername";
 import {toast} from "@/components/ui/use-toast";
 import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@/components/ui/card";
 import {ArrowRight} from "lucide-react";
-import {useState} from "react";
+import {useEffect, useRef, useState} from "react";
+import checkVoteWebsite from "@/lib/checkVote";
+
 
 const FormSchema = z.object({
     username: z.string().min(2, {
@@ -29,6 +32,43 @@ export function VoteForm() {
             username: "",
         },
     })
+    const intervalRef = useRef<number | null>(null);
+    const [isCheckingVote, setIsCheckingVote] = useState(false);
+
+    async function checkVote(website: string) {
+        setIsCheckingVote(true);
+        // Check if the vote was done
+        const voteChecked = await checkVoteWebsite(website);
+        const hasVoted = voteChecked.hasVoted;
+        const timeUntilNextVote = voteChecked.timeUntilNextVote;
+        if (hasVoted) {
+            if (intervalRef.current !== null) {
+                window.clearInterval(intervalRef.current);
+                intervalRef.current = null;
+            }
+            toast({
+                title: "Merci pour votre vote !",
+                description: `Prochain vote: ${timeUntilNextVote}`,
+                variant: "default",
+            });
+        }
+        setIsCheckingVote(false);
+    }
+
+    function handleButtonClick(url: string) {
+        window.open(url, '_blank');
+        if (intervalRef.current === null) {
+            intervalRef.current = window.setInterval(() => checkVote(url), 1000);
+        }
+    }
+
+    useEffect(() => {
+        return () => {
+            if (intervalRef.current !== null) {
+                window.clearInterval(intervalRef.current);
+            }
+        };
+    }, []);
 
     async function onSubmit(data: z.infer<typeof FormSchema>) {
         const [status, result] = await checkUsername(data.username);
@@ -79,27 +119,42 @@ export function VoteForm() {
                     <CardContent>
                         <ul className="space-y-4">
                             <li>
-                                <Button className="flex flex-row items-center gap-1">
+                                <Button
+                                    className={`flex flex-row items-center gap-1 ${isCheckingVote ? 'opacity-50' : ''}`}
+                                    onClick={() => handleButtonClick('https://serveur-minecraft.com/3260')}
+                                    disabled={isCheckingVote}>
                                     serveur-minecraft.com <ArrowRight size={16}/>
                                 </Button>
                             </li>
                             <li>
-                                <Button className="flex flex-row items-center gap-1">
+                                <Button
+                                    className={`flex flex-row items-center gap-1 ${isCheckingVote ? 'opacity-50' : ''}`}
+                                    onClick={() => handleButtonClick('https://serveur-prive.net/minecraft/winzoria-13681/vote')}
+                                    disabled={isCheckingVote}>
                                     serveur-prive.com <ArrowRight size={16}/>
                                 </Button>
                             </li>
                             <li>
-                                <Button className="flex flex-row items-center gap-1">
+                                <Button
+                                    className={`flex flex-row items-center gap-1 ${isCheckingVote ? 'opacity-50' : ''}`}
+                                    onClick={() => handleButtonClick('https://www.liste-serveurs-minecraft.org/vote/?idc=206300')}
+                                    disabled={isCheckingVote}>
                                     liste-serveurs-minecraft.org <ArrowRight size={16}/>
                                 </Button>
                             </li>
                             <li>
-                                <Button className="flex flex-row items-center gap-1">
+                                <Button
+                                    className={`flex flex-row items-center gap-1 ${isCheckingVote ? 'opacity-50' : ''}`}
+                                    onClick={() => handleButtonClick('https://www.serveursminecraft.org/serveur/6772/')}
+                                    disabled={isCheckingVote}>
                                     serveursminecraft.org <ArrowRight size={16}/>
                                 </Button>
                             </li>
                             <li>
-                                <Button className="flex flex-row items-center gap-1">
+                                <Button
+                                    className={`flex flex-row items-center gap-1 ${isCheckingVote ? 'opacity-50' : ''}`}
+                                    onClick={() => handleButtonClick('https://www.liste-serveurs.fr/server-winzoria.723/vote')}
+                                    disabled={isCheckingVote}>
                                     liste-serveurs.fr <ArrowRight size={16}/>
                                 </Button>
                             </li>

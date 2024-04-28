@@ -40,7 +40,7 @@ const StaffMember = ({username, role}: { username: string; role: Role }) => {
 
                 {imageUrl && (
                     <Card className="text-xl w-[30rem] h-full flex flex-row p-3 items-center">
-                        <CardContent>
+                        <CardContent className="pt-2">
                             <Image className="bg-secondary p-2 rounded-lg border" width={120} height={120}
                                    src={imageUrl}
                                    alt={`Skin for ${username}`}/>
