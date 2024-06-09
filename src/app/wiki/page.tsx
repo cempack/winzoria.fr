@@ -52,7 +52,8 @@ export default function Wiki() {
                             <CardDescription>L&apos;ensemble des atouts ainsi que leurs avantages.</CardDescription>
                         </CardHeader>
                     </Card>
-                </Link>
+                </Link
+                >
             </div>
         </div>
     );
