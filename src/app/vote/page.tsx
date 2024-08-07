@@ -14,7 +14,6 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { VoteForm } from "@/components/vote/vote-form";
-import { getBestVoters } from "@/db/queries/select";
 
 type VoterType = {
   id: number;
@@ -23,7 +22,7 @@ type VoterType = {
 };
 
 export default async function Vote() {
-  const bestVoters = await getBestVoters();
+  const bestVoters = await fetchBestVoters();
 
   return (
     <main className="flex min-h-[calc(100vh_-_theme(spacing.16))] flex-1 flex-col gap-4 bg-muted/40 md:gap-8">
@@ -48,32 +47,22 @@ export default async function Vote() {
                   <TableCell className="font-medium">1 Clé de vote</TableCell>
                   <TableCell>70%</TableCell>
                 </TableRow>
-              </TableBody>
-              <TableBody>
                 <TableRow>
                   <TableCell className="font-medium">2 Clés de vote</TableCell>
                   <TableCell>20%</TableCell>
                 </TableRow>
-              </TableBody>
-              <TableBody>
                 <TableRow>
                   <TableCell className="font-medium">3 Clés de vote</TableCell>
                   <TableCell>5%</TableCell>
                 </TableRow>
-              </TableBody>
-              <TableBody>
                 <TableRow>
                   <TableCell className="font-medium">1 Clé commune</TableCell>
                   <TableCell>3%</TableCell>
                 </TableRow>
-              </TableBody>
-              <TableBody>
                 <TableRow>
                   <TableCell className="font-medium">1 Clé Or</TableCell>
                   <TableCell>1%</TableCell>
                 </TableRow>
-              </TableBody>
-              <TableBody>
                 <TableRow>
                   <TableCell className="font-medium">1 Clé outil</TableCell>
                   <TableCell>1%</TableCell>
@@ -111,6 +100,8 @@ export default async function Vote() {
                   <TableHead>Joueur</TableHead>
                   <TableHead>Votes</TableHead>
                 </TableRow>
+              </TableHeader>
+              <TableBody>
                 {bestVoters.map((voter: VoterType, index: number) => (
                   <TableRow key={voter.id}>
                     <TableCell>{index + 1}</TableCell>
@@ -118,11 +109,21 @@ export default async function Vote() {
                     <TableCell>{voter.votes}</TableCell>
                   </TableRow>
                 ))}
-              </TableHeader>
+              </TableBody>
             </Table>
           </CardContent>
         </Card>
       </div>
     </main>
   );
+}
+
+async function fetchBestVoters() {
+  const baseUrl = process.env.PUBLIC_BASE_URL;
+  const res = await fetch(`${baseUrl}/api/best-voters`, { cache: "no-store" });
+  if (!res.ok) {
+    throw new Error("Failed to fetch best voters");
+  }
+  const data = await res.json();
+  return data.bestVoters;
 }
