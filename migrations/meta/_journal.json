@@ -15,6 +15,34 @@
       "when": 1723039910306,
       "tag": "0001_warm_mentor",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1723042389234,
+      "tag": "0002_flimsy_electro",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1723042622892,
+      "tag": "0003_cloudy_falcon",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1723043653278,
+      "tag": "0004_fair_devos",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1723044519961,
+      "tag": "0005_natural_warlock",
+      "breakpoints": true
     }
   ]
 }

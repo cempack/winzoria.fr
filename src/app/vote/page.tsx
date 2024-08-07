@@ -14,8 +14,17 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { VoteForm } from "@/components/vote/vote-form";
+import { getBestVoters } from "@/db/queries/select";
 
-export default function Vote() {
+type VoterType = {
+  id: number;
+  username: string;
+  votes: number;
+};
+
+export default async function Vote() {
+  const bestVoters = await getBestVoters();
+
   return (
     <main className="flex min-h-[calc(100vh_-_theme(spacing.16))] flex-1 flex-col gap-4 bg-muted/40 md:gap-8">
       <div className="container space-y-4 mx-auto px-4 py-12 md:px-6 p-16">
@@ -102,28 +111,14 @@ export default function Vote() {
                   <TableHead>Joueur</TableHead>
                   <TableHead>Votes</TableHead>
                 </TableRow>
+                {bestVoters.map((voter: VoterType, index: number) => (
+                  <TableRow key={voter.id}>
+                    <TableCell>{index + 1}</TableCell>
+                    <TableCell>{voter.username}</TableCell>
+                    <TableCell>{voter.votes}</TableCell>
+                  </TableRow>
+                ))}
               </TableHeader>
-              <TableBody>
-                <TableRow className="text-xl">
-                  <TableCell>1</TableCell>
-                  <TableCell>cempack</TableCell>
-                  <TableCell>10</TableCell>
-                </TableRow>
-              </TableBody>
-              <TableBody>
-                <TableRow>
-                  <TableCell>2</TableCell>
-                  <TableCell>iJuju_68</TableCell>
-                  <TableCell>5</TableCell>
-                </TableRow>
-              </TableBody>
-              <TableBody>
-                <TableRow>
-                  <TableCell>3</TableCell>
-                  <TableCell>MrPhil7H48</TableCell>
-                  <TableCell>4</TableCell>
-                </TableRow>
-              </TableBody>
             </Table>
           </CardContent>
         </Card>

@@ -1,0 +1,1 @@
+ALTER TABLE "best_voters_table" ADD CONSTRAINT "best_voters_table_username_unique" UNIQUE("username");

@@ -1,8 +1,16 @@
 "use server";
 
-import { createVote } from "@/db/queries/insert";
-import { getUserByUsername } from "@/db/queries/select";
-import { updateVote } from "@/db/queries/update";
+import {
+  createBestVoter,
+  createLastVote,
+  createVote,
+} from "@/db/queries/insert";
+import {
+  getBestVoterByUsername,
+  getLastVoteByUsernameAndWebsite,
+  getUserByUsername,
+} from "@/db/queries/select";
+import { updateBestVoter, updateVote } from "@/db/queries/update";
 
 export default async function checkVoteWebsite(
   website: string,
@@ -15,7 +23,7 @@ export default async function checkVoteWebsite(
     value?: string | boolean | number;
     value_not?: string | boolean | number;
     time_until_next_vote_key?: string;
-    time_until_next_vote?: number;
+    time_until_next_vote: number;
   }
 
   const websites: { [key: string]: WebsiteData } = {
@@ -32,7 +40,7 @@ export default async function checkVoteWebsite(
       time_until_next_vote: 5400,
     },
     "https://www.liste-serveurs-minecraft.org/vote/?idc=206300": {
-      url: `https://api.liste-serveurs-minecraft.org/vote/vote_verification.php?server_id=206300&ip=${ip}&duration=15`,
+      url: `https://api.liste-serveurs-minecraft.org/vote/vote_verification.php?server_id=206300&ip=${ip}&duration=3600`,
       value: "1",
       time_until_next_vote: 10800,
     },
@@ -52,6 +60,40 @@ export default async function checkVoteWebsite(
   const websiteData = websites[website];
   if (!websiteData) {
     throw new Error(`Website ${website} not found in websites object`);
+  }
+
+  // Check if the user has not already voted on this website
+  async function checkVoteWebsite(
+    website: string,
+    username: string,
+    timeUntilNextVote: number
+  ): Promise<boolean> {
+    return getLastVoteByUsernameAndWebsite(username, website).then(
+      (lastVote) => {
+        if (lastVote.length === 0) {
+          // User has not voted yet
+          return false;
+        } else {
+          const lastVoteTime = new Date(lastVote[0].last_vote_time);
+          if (Date.now() - lastVoteTime.getTime() > timeUntilNextVote * 1000) {
+            return false;
+          } else {
+            return true;
+          }
+        }
+      }
+    );
+  }
+
+  if (
+    await checkVoteWebsite(website, username, websiteData.time_until_next_vote)
+  ) {
+    return {
+      hasVoted: true,
+      timeUntilNextVote: "00:00:00",
+      data: null,
+      hasAlreadyVoted: true,
+    };
   }
 
   const response = await fetch(websiteData.url);
@@ -118,12 +160,54 @@ export default async function checkVoteWebsite(
           votes: 1,
         });
         console.log("Vote created successfully.");
+
+        // Add last vote
+        await createLastVote({
+          username: username,
+          last_vote: website,
+          last_vote_time: new Date().toISOString(),
+        });
+
+        console.log("Last vote created successfully.");
+
+        // Insert best voter
+        await createBestVoter({
+          username: username,
+          votes: 1,
+        });
+        console.log("Best voter created successfully.");
       } else {
         // Update vote
         await updateVote(username, {
           votes: vote[0].votes + 1,
         });
         console.log("Vote updated successfully.");
+
+        // Insert last vote
+        await createLastVote({
+          username: username,
+          last_vote: website,
+          last_vote_time: new Date().toISOString(),
+        });
+
+        console.log("Last vote created successfully.");
+
+        // Update best voters
+        const bestVoters = await getBestVoterByUsername(username);
+        if (bestVoters.length === 0) {
+          // Insert best voter
+          await createBestVoter({
+            username: username,
+            votes: 1,
+          });
+          console.log("Best voter created successfully.");
+        } else {
+          // Update best voter
+          await updateBestVoter(username, {
+            votes: bestVoters[0].votes + 1,
+          });
+          console.log("Best voter updated successfully.");
+        }
       }
     } catch (error) {
       console.error("Error handling vote:", error);
@@ -137,5 +221,6 @@ export default async function checkVoteWebsite(
     hasVoted: hasVoted,
     timeUntilNextVote: timeUntilNextVote,
     data: data,
+    hasAlreadyVoted: false,
   };
 }

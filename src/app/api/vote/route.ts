@@ -3,7 +3,7 @@ import { updateVote } from "@/db/queries/update";
 import { NextRequest, NextResponse } from "next/server";
 
 // Predefined token for verification
-const token = "your_predefined_token";
+const token = process.env.TOKEN;
 
 export async function GET(request: NextRequest) {
   // Extract query parameters

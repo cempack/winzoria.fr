@@ -73,26 +73,40 @@ export function VoteForm() {
       ip,
       form.getValues().username
     );
-    const hasVoted = voteChecked.hasVoted;
-    const data = voteChecked.data;
-    console.log(
-      voteChecked,
-      hasVoted,
-      website,
-      ip,
-      voteChecked.timeUntilNextVote,
-      data
-    );
-    const timeUntilNextVote = voteChecked.timeUntilNextVote;
-    if (hasVoted) {
+    const hasAlreadyVoted = voteChecked.hasAlreadyVoted;
+    console.log(hasAlreadyVoted);
+    if (!hasAlreadyVoted) {
+      const hasVoted = voteChecked.hasVoted;
+      const data = voteChecked.data;
+      console.log(
+        voteChecked,
+        hasVoted,
+        website,
+        ip,
+        voteChecked.timeUntilNextVote,
+        data
+      );
+      const timeUntilNextVote = voteChecked.timeUntilNextVote;
+      if (hasVoted) {
+        if (intervalRef.current !== null) {
+          window.clearInterval(intervalRef.current);
+          intervalRef.current = null;
+        }
+        toast({
+          title: "Merci pour votre vote !",
+          description: `Prochain vote: ${timeUntilNextVote}`,
+          variant: "default",
+        });
+      }
+    } else {
       if (intervalRef.current !== null) {
         window.clearInterval(intervalRef.current);
         intervalRef.current = null;
       }
       toast({
-        title: "Merci pour votre vote !",
-        description: `Prochain vote: ${timeUntilNextVote}`,
-        variant: "default",
+        title: "Vous avez déjà voté sur ce site.",
+        description: "Veuillez attendre avant de voter à nouveau.",
+        variant: "destructive",
       });
     }
     setIsCheckingVote(false);
@@ -101,7 +115,7 @@ export function VoteForm() {
   function handleButtonClick(url: string) {
     window.open(url, "_blank");
     if (intervalRef.current === null) {
-      intervalRef.current = window.setInterval(() => checkVote(url), 5000);
+      intervalRef.current = window.setInterval(() => checkVote(url), 3000);
     }
   }
 
