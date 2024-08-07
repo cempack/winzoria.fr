@@ -24,8 +24,8 @@ export default async function checkVoteWebsite(website: string, ip: string) {
       time_until_next_vote: 5400,
     },
     "https://www.liste-serveurs-minecraft.org/vote/?idc=206300": {
-      url: `https://api.liste-serveurs-minecraft.org/vote/vote_verification.php?server_id=206300&ip=${ip}&duration=5`,
-      value: 1,
+      url: `https://api.liste-serveurs-minecraft.org/vote/vote_verification.php?server_id=206300&ip=${ip}&duration=15`,
+      value: "1",
       time_until_next_vote: 10800,
     },
     "https://www.serveursminecraft.org/serveur/6772/": {
@@ -98,5 +98,6 @@ export default async function checkVoteWebsite(website: string, ip: string) {
   return {
     hasVoted: hasVoted,
     timeUntilNextVote: timeUntilNextVote,
+    data: data,
   };
 }

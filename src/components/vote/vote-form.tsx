@@ -39,8 +39,9 @@ const FormSchema = z.object({
     }),
 });
 
-export function VoteForm({ ip }: { ip: string }) {
+export function VoteForm() {
   const [isUsernameValid, setIsUsernameValid] = useState(false);
+  const [ip, setIp] = useState("");
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
@@ -50,11 +51,34 @@ export function VoteForm({ ip }: { ip: string }) {
   const intervalRef = useRef<number | null>(null);
   const [isCheckingVote, setIsCheckingVote] = useState(false);
 
+  useEffect(() => {
+    async function fetchIp() {
+      try {
+        const response = await fetch("https://api.ipify.org?format=json");
+        const data = await response.json();
+        setIp(data.ip);
+      } catch (error) {
+        console.error("Error fetching IP:", error);
+      }
+    }
+
+    fetchIp();
+  }, []);
+
   async function checkVote(website: string) {
     setIsCheckingVote(true);
     // Check if the vote was done
     const voteChecked = await checkVoteWebsite(website, ip);
     const hasVoted = voteChecked.hasVoted;
+    const data = voteChecked.data;
+    console.log(
+      voteChecked,
+      hasVoted,
+      website,
+      ip,
+      voteChecked.timeUntilNextVote,
+      data
+    );
     const timeUntilNextVote = voteChecked.timeUntilNextVote;
     if (hasVoted) {
       if (intervalRef.current !== null) {
@@ -73,7 +97,7 @@ export function VoteForm({ ip }: { ip: string }) {
   function handleButtonClick(url: string) {
     window.open(url, "_blank");
     if (intervalRef.current === null) {
-      intervalRef.current = window.setInterval(() => checkVote(url), 1000);
+      intervalRef.current = window.setInterval(() => checkVote(url), 5000);
     }
   }
 
