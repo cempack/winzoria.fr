@@ -1,6 +1,14 @@
 "use server";
 
-export default async function checkVoteWebsite(website: string, ip: string) {
+import { createVote } from "@/db/queries/insert";
+import { getUserByUsername } from "@/db/queries/select";
+import { updateVote } from "@/db/queries/update";
+
+export default async function checkVoteWebsite(
+  website: string,
+  ip: string,
+  username: string
+) {
   interface WebsiteData {
     url: string;
     key?: string;
@@ -11,12 +19,12 @@ export default async function checkVoteWebsite(website: string, ip: string) {
   }
 
   const websites: { [key: string]: WebsiteData } = {
-    "https://serveur-minecraft.com/3260": {
-      url: `https://serveur-minecraft.com/api/1/vote/3260/${ip}/json`,
-      key: "vote",
-      value: "1",
-      time_until_next_vote_key: "time_until_next_vote",
-    },
+    // "https://serveur-minecraft.com/3260": {
+    //   url: `https://serveur-minecraft.com/api/1/vote/3260/${ip}/json`,
+    //   key: "vote",
+    //   value: "1",
+    //   time_until_next_vote_key: "time_until_next_vote",
+    // },
     "https://serveur-prive.net/minecraft/winzoria-13681/vote": {
       url: `https://serveur-prive.net/api/v1/servers/jvRmuF9HB8hsI0V/votes/${ip}`,
       key: "success",
@@ -56,7 +64,7 @@ export default async function checkVoteWebsite(website: string, ip: string) {
   }
   console.log(data);
 
-  let hasVoted;
+  let hasVoted: boolean = false;
   if (websiteData.key && data[websiteData.key]) {
     if (websiteData.value) {
       hasVoted = data[websiteData.key] === websiteData.value;
@@ -94,6 +102,36 @@ export default async function checkVoteWebsite(website: string, ip: string) {
   }
 
   timeUntilNextVote = formatSeconds(timeUntilNextVote);
+
+  async function handleVote(username: string, hasVoted: boolean) {
+    if (!hasVoted) {
+      console.log("User has not voted yet.");
+      return;
+    }
+
+    try {
+      const vote = await getUserByUsername(username);
+      if (vote.length === 0) {
+        // Insert vote
+        await createVote({
+          username: username,
+          votes: 1,
+        });
+        console.log("Vote created successfully.");
+      } else {
+        // Update vote
+        await updateVote(username, {
+          votes: vote[0].votes + 1,
+        });
+        console.log("Vote updated successfully.");
+      }
+    } catch (error) {
+      console.error("Error handling vote:", error);
+      throw new Error("Failed to handle vote");
+    }
+  }
+
+  await handleVote(username, hasVoted);
 
   return {
     hasVoted: hasVoted,

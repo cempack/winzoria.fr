@@ -1,0 +1,52 @@
+{
+  "id": "1b0c67f5-2109-4c43-aa06-3f58e37a1641",
+  "prevId": "45db2ede-7118-4142-9064-c0b319f9fe51",
+  "version": "7",
+  "dialect": "postgresql",
+  "tables": {
+    "public.votes_table": {
+      "name": "votes_table",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "username": {
+          "name": "username",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "votes": {
+          "name": "votes",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "votes_table_username_unique": {
+          "name": "votes_table_username_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "username"
+          ]
+        }
+      }
+    }
+  },
+  "enums": {},
+  "schemas": {},
+  "sequences": {},
+  "_meta": {
+    "columns": {},
+    "schemas": {},
+    "tables": {}
+  }
+}

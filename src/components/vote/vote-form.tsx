@@ -68,7 +68,11 @@ export function VoteForm() {
   async function checkVote(website: string) {
     setIsCheckingVote(true);
     // Check if the vote was done
-    const voteChecked = await checkVoteWebsite(website, ip);
+    const voteChecked = await checkVoteWebsite(
+      website,
+      ip,
+      form.getValues().username
+    );
     const hasVoted = voteChecked.hasVoted;
     const data = voteChecked.data;
     console.log(
@@ -161,7 +165,7 @@ export function VoteForm() {
           </CardHeader>
           <CardContent>
             <ul className="space-y-4">
-              <li>
+              {/* <li>
                 <Button
                   className={`flex flex-row items-center gap-1 ${
                     isCheckingVote ? "opacity-50" : ""
@@ -173,7 +177,7 @@ export function VoteForm() {
                 >
                   serveur-minecraft.com <ArrowRight size={16} />
                 </Button>
-              </li>
+              </li> */}
               <li>
                 <Button
                   className={`flex flex-row items-center gap-1 ${
