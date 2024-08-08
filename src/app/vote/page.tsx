@@ -5,6 +5,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { BestVotersSkeleton } from "@/components/ui/skeleton";
 import {
   Table,
   TableBody,
@@ -13,20 +14,11 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import BestVoters from "@/components/vote/best-voters";
 import { VoteForm } from "@/components/vote/vote-form";
-import { deleteLastVoteByUsername } from "@/db/queries/delete";
-
-type VoterType = {
-  id: number;
-  username: string;
-  votes: number;
-};
+import { Suspense } from "react";
 
 export default async function Vote() {
-  const bestVoters = await fetchBestVoters();
-
-  await deleteLastVoteByUsername("cempack");
-
   return (
     <main className="flex min-h-[calc(100vh_-_theme(spacing.16))] flex-1 flex-col gap-4 bg-muted/40 md:gap-8">
       <div className="container space-y-4 mx-auto px-4 py-12 md:px-6 p-16">
@@ -96,37 +88,12 @@ export default async function Vote() {
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <Table className="text-md">
-              <TableHeader>
-                <TableRow>
-                  <TableHead>Rang</TableHead>
-                  <TableHead>Joueur</TableHead>
-                  <TableHead>Votes</TableHead>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                {bestVoters.map((voter: VoterType, index: number) => (
-                  <TableRow key={voter.id}>
-                    <TableCell>{index + 1}</TableCell>
-                    <TableCell>{voter.username}</TableCell>
-                    <TableCell>{voter.votes}</TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-            </Table>
+            <Suspense fallback={<BestVotersSkeleton />}>
+              <BestVoters />
+            </Suspense>
           </CardContent>
         </Card>
       </div>
     </main>
   );
-}
-
-async function fetchBestVoters() {
-  const baseUrl = process.env.PUBLIC_BASE_URL;
-  const res = await fetch(`${baseUrl}/api/best-voters`, { cache: "no-store" });
-  if (!res.ok) {
-    throw new Error("Failed to fetch best voters");
-  }
-  const data = await res.json();
-  return data.bestVoters;
 }

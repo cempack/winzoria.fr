@@ -96,6 +96,7 @@ export function VoteForm() {
           title: "Merci pour votre vote !",
           description: `Prochain vote: ${timeUntilNextVote}`,
           variant: "default",
+          autoDismiss: false,
         });
       }
     } else {
@@ -107,6 +108,7 @@ export function VoteForm() {
         title: "Vous avez déjà voté sur ce site.",
         description: "Veuillez attendre avant de voter à nouveau.",
         variant: "destructive",
+        autoDismiss: false,
       });
     }
     setIsCheckingVote(false);
@@ -134,11 +136,13 @@ export function VoteForm() {
         title:
           "Le nom d'utilisateur n'existe pas. Veuillez vérifier votre saisie.",
         variant: "destructive",
+        autoDismiss: false,
       });
     } else if (status === "error" && result === "An unknown error occurred") {
       toast({
         title: "Une erreur est survenue. Veuillez nous contacter.",
         variant: "destructive",
+        autoDismiss: false,
       });
     } else {
       setIsUsernameValid(true);

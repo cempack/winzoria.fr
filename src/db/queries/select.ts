@@ -44,7 +44,8 @@ export async function getLastVoteByUsernameAndWebsite(
     .where(
       eq(lastsVotesTable.username, username) &&
         eq(lastsVotesTable.last_vote, website)
-    );
+    )
+    .orderBy(desc(lastsVotesTable.last_vote_time));
 }
 
 // Function to get the best voters

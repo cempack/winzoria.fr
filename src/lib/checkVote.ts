@@ -68,21 +68,36 @@ export default async function checkVoteWebsite(
     username: string,
     timeUntilNextVote: number
   ): Promise<boolean> {
-    return getLastVoteByUsernameAndWebsite(username, website).then(
-      (lastVote) => {
-        if (lastVote.length === 0) {
-          // User has not voted yet
-          return false;
+    try {
+      const lastVote = await getLastVoteByUsernameAndWebsite(username, website);
+
+      if (lastVote.length === 0) {
+        // User has not voted yet
+        console.log("User has not voted yet.");
+        return false;
+      } else {
+        const lastVoteTime = new Date(lastVote[0].last_vote_time);
+        const currentTime = Date.now();
+        const timeDifference = currentTime - lastVoteTime.getTime();
+        const timeUntilNextVoteMs = timeUntilNextVote * 1000;
+
+        console.log("Last vote time:", lastVoteTime);
+        console.log("Current time:", new Date(currentTime));
+        console.log("Time difference (ms):", timeDifference);
+        console.log("Time until next vote (ms):", timeUntilNextVoteMs);
+
+        if (timeDifference < timeUntilNextVoteMs) {
+          console.log("User cannot vote yet.");
+          return true;
         } else {
-          const lastVoteTime = new Date(lastVote[0].last_vote_time);
-          if (Date.now() - lastVoteTime.getTime() > timeUntilNextVote * 1000) {
-            return false;
-          } else {
-            return true;
-          }
+          console.log("User can vote again.");
+          return false;
         }
       }
-    );
+    } catch (error) {
+      console.error("Error checking vote website:", error);
+      throw new Error("Failed to check vote website");
+    }
   }
 
   if (
