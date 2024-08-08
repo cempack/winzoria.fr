@@ -1,4 +1,4 @@
-import { eq } from "drizzle-orm";
+import { desc, eq } from "drizzle-orm";
 import { db } from "../index";
 import {
   SelectLastVote,
@@ -52,7 +52,7 @@ export async function getBestVoters(): Promise<UserVote[]> {
   return db
     .select()
     .from(bestVotersTable)
-    .orderBy(bestVotersTable.votes)
+    .orderBy(desc(bestVotersTable.votes))
     .limit(10)
     .execute();
 }
