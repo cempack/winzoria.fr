@@ -70,7 +70,7 @@ export default async function checkVoteWebsite(
   ): Promise<boolean> {
     try {
       const lastVote = await getLastVoteByUsernameAndWebsite(username, website);
-
+      console.log(lastVote);
       if (lastVote.length === 0) {
         // User has not voted yet
         console.log("User has not voted yet.");

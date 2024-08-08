@@ -1,4 +1,4 @@
-import { desc, eq } from "drizzle-orm";
+import { and, desc, eq } from "drizzle-orm";
 import { db } from "../index";
 import {
   SelectLastVote,
@@ -42,8 +42,10 @@ export async function getLastVoteByUsernameAndWebsite(
     .select()
     .from(lastsVotesTable)
     .where(
-      eq(lastsVotesTable.username, username) &&
+      and(
+        eq(lastsVotesTable.username, username),
         eq(lastsVotesTable.last_vote, website)
+      )
     )
     .orderBy(desc(lastsVotesTable.last_vote_time));
 }

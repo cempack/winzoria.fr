@@ -22,8 +22,8 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { toast } from "@/components/ui/use-toast";
-import checkUsername from "@/lib/checkUsername";
 import checkVoteWebsite from "@/lib/checkVote";
+import { cn } from "@/lib/utils";
 import { ArrowRight } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
@@ -40,6 +40,8 @@ const FormSchema = z.object({
 });
 
 export function VoteForm() {
+  const [messageVoted, setMessageVoted] = useState(false);
+  const [messageError, setMessageError] = useState(false);
   const [isUsernameValid, setIsUsernameValid] = useState(false);
   const [ip, setIp] = useState("");
   const form = useForm<z.infer<typeof FormSchema>>({
@@ -98,6 +100,7 @@ export function VoteForm() {
           variant: "default",
           autoDismiss: false,
         });
+        setMessageVoted(true);
       }
     } else {
       if (intervalRef.current !== null) {
@@ -110,11 +113,14 @@ export function VoteForm() {
         variant: "destructive",
         autoDismiss: false,
       });
+      setMessageError(true);
     }
     setIsCheckingVote(false);
   }
 
   function handleButtonClick(url: string) {
+    setMessageVoted(false);
+    setMessageError(false);
     window.open(url, "_blank");
     if (intervalRef.current === null) {
       intervalRef.current = window.setInterval(() => checkVote(url), 3000);
@@ -130,23 +136,7 @@ export function VoteForm() {
   }, []);
 
   async function onSubmit(data: z.infer<typeof FormSchema>) {
-    const [status, result] = await checkUsername(data.username);
-    if (status === "error" && result === "User does not exist") {
-      toast({
-        title:
-          "Le nom d'utilisateur n'existe pas. Veuillez vérifier votre saisie.",
-        variant: "destructive",
-        autoDismiss: false,
-      });
-    } else if (status === "error" && result === "An unknown error occurred") {
-      toast({
-        title: "Une erreur est survenue. Veuillez nous contacter.",
-        variant: "destructive",
-        autoDismiss: false,
-      });
-    } else {
-      setIsUsernameValid(true);
-    }
+    setIsUsernameValid(true);
   }
 
   return (
@@ -182,6 +172,26 @@ export function VoteForm() {
             </CardDescription>
           </CardHeader>
           <CardContent>
+            <p
+              className={cn(
+                "bg-green-500 w-48 text-center p-2 rounded-sm text-white text-base mb-3",
+                {
+                  hidden: !messageVoted,
+                }
+              )}
+            >
+              Merci pour votre vote !
+            </p>
+            <p
+              className={cn(
+                "bg-red-500 w-72 text-center p-2 rounded-sm text-white text-base mb-3",
+                {
+                  hidden: !messageError,
+                }
+              )}
+            >
+              Vous avez déjà voté sur ce site.
+            </p>
             <ul className="space-y-4">
               {/* <li>
                 <Button
