@@ -17,3 +17,7 @@ export async function deleteBestVoterByUsername(username: string) {
     .delete(bestVotersTable)
     .where(eq(bestVotersTable.username, username));
 }
+
+export async function resetBestVoters() {
+  await db.delete(bestVotersTable);
+}

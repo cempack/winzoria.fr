@@ -82,9 +82,10 @@ export default async function Vote() {
         </Card>
         <Card>
           <CardHeader>
-            <CardTitle className="text-xl">Classement</CardTitle>
+            <CardTitle className="text-xl">Classement du mois</CardTitle>
             <CardDescription>
-              Voici le classement des joueurs ayant voté pour Winzoria.
+              Voici le classement des joueurs ayant voté pour Winzoria ce
+              mois-ci.
             </CardDescription>
           </CardHeader>
           <CardContent>
