@@ -37,7 +37,7 @@ export default async function checkVoteWebsite(
       url: `https://serveur-prive.net/api/v1/servers/jvRmuF9HB8hsI0V/votes/${ip}`,
       key: "success",
       value: true,
-      time_until_next_vote: 5400,
+      time_until_next_vote: 1800,
     },
     "https://www.liste-serveurs-minecraft.org/vote/?idc=206300": {
       url: `https://api.liste-serveurs-minecraft.org/vote/vote_verification.php?server_id=206300&ip=${ip}&duration=3600`,

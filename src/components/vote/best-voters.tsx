@@ -1,3 +1,7 @@
+"use client";
+
+import { env } from "@/app/env";
+import { useEffect, useState } from "react";
 import {
   Table,
   TableBody,
@@ -13,8 +17,29 @@ type VoterType = {
   votes: number;
 };
 
-export default async function BestVoters() {
-  const bestVoters = await fetchBestVoters();
+export default function BestVoters() {
+  const [bestVoters, setBestVoters] = useState<VoterType[]>([]);
+
+  useEffect(() => {
+    const fetchBestVoters = async () => {
+      const baseUrl = env.NEXT_PUBLIC_BASE_URL;
+      const res = await fetch(`${baseUrl}/api/best-voters`, {
+        cache: "no-store",
+      });
+      if (!res.ok) {
+        throw new Error("Failed to fetch best voters");
+      }
+      const data = await res.json();
+      setBestVoters(data.bestVoters);
+    };
+
+    fetchBestVoters();
+
+    // Update data every 10 seconds
+    const intervalId = setInterval(fetchBestVoters, 10000);
+
+    return () => clearInterval(intervalId); // Cleanup interval on component unmount
+  }, []);
 
   return (
     <div>
@@ -38,14 +63,4 @@ export default async function BestVoters() {
       </Table>
     </div>
   );
-}
-
-async function fetchBestVoters() {
-  const baseUrl = process.env.PUBLIC_BASE_URL;
-  const res = await fetch(`${baseUrl}/api/best-voters`, { cache: "no-store" });
-  if (!res.ok) {
-    throw new Error("Failed to fetch best voters");
-  }
-  const data = await res.json();
-  return data.bestVoters;
 }

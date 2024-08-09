@@ -1,9 +1,20 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import UnderConstruction from "@/components/under-construction";
 import { ArrowRight, Eye, NewspaperIcon, SparklesIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function Blog() {
+  const isUnderConstruction = true;
+
+  if (isUnderConstruction) {
+    return (
+      <main>
+        <UnderConstruction />
+      </main>
+    );
+  }
+
   return (
     <main className="flex min-h-[calc(100vh_-_theme(spacing.16))] flex-1 flex-col gap-4 bg-muted/40 md:gap-8">
       <div className="container mx-auto px-4 py-12 md:px-6 p-16">
