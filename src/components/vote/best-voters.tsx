@@ -1,6 +1,6 @@
 "use client";
 
-import { env } from "@/app/env";
+import getBestVotersRoute from "@/lib/getBestVoters";
 import { useEffect, useState } from "react";
 import {
   Table,
@@ -22,15 +22,8 @@ export default function BestVoters() {
 
   useEffect(() => {
     const fetchBestVoters = async () => {
-      const baseUrl = env.NEXT_PUBLIC_BASE_URL;
-      const res = await fetch(`${baseUrl}/api/best-voters`, {
-        cache: "no-store",
-      });
-      if (!res.ok) {
-        throw new Error("Failed to fetch best voters");
-      }
-      const data = await res.json();
-      setBestVoters(data.bestVoters);
+      const bestVoters = await getBestVotersRoute();
+      setBestVoters(bestVoters);
     };
 
     fetchBestVoters();
