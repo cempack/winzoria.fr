@@ -1,15 +1,4 @@
-import UnderConstruction from "@/components/under-construction";
-
 export default function Rules() {
-  const isUnderConstruction = true;
-
-  if (isUnderConstruction) {
-    return (
-      <main>
-        <UnderConstruction />
-      </main>
-    );
-  }
   return (
     <main className="text-gray-900 dark:text-gray-50 font-sans">
       <div className="max-w-4xl mx-auto py-12 px-4 sm:px-6 lg:px-8">

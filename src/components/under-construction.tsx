@@ -7,8 +7,6 @@ const UnderConstruction: React.FC = () => {
     alignItems: "center",
     justifyContent: "center",
     height: "100vh",
-    backgroundColor: "#f8f9fa",
-    color: "#343a40",
     textAlign: "center",
   };
 
