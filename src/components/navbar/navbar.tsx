@@ -13,7 +13,9 @@ import { AccountMenu } from "@/components/navbar/account-menu";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Suspense } from "react";
 import Logo from "../ui/logo";
+import { BestVotersSkeleton } from "../ui/skeleton";
 import { ModeToggle } from "./mode-toggle";
 
 export const NavBar = () => {
@@ -146,7 +148,9 @@ export const NavBar = () => {
               />
             </div>
           </form>
-          <AccountMenu />
+          <Suspense fallback={<BestVotersSkeleton />}>
+            <AccountMenu />
+          </Suspense>
           <ModeToggle />
         </div>
       </header>

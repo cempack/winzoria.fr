@@ -71,18 +71,19 @@ export default async function checkVoteWebsite(
     try {
       const lastVote = await getLastVoteByUsernameAndWebsite(username, website);
       console.log(lastVote);
+
       if (lastVote.length === 0) {
         // User has not voted yet
         console.log("User has not voted yet.");
         return false;
       } else {
         const lastVoteTime = new Date(lastVote[0].last_vote_time);
-        const currentTime = Date.now();
-        const timeDifference = currentTime - lastVoteTime.getTime();
+        const currentTime = new Date(); // Use new Date() instead of Date.now()
+        const timeDifference = currentTime.getTime() - lastVoteTime.getTime();
         const timeUntilNextVoteMs = timeUntilNextVote * 1000;
 
         console.log("Last vote time:", lastVoteTime);
-        console.log("Current time:", new Date(currentTime));
+        console.log("Current time:", currentTime);
         console.log("Time difference (ms):", timeDifference);
         console.log("Time until next vote (ms):", timeUntilNextVoteMs);
 

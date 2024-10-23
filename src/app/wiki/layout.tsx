@@ -15,7 +15,7 @@ export default function WikiLayout({
   const pathname = usePathname();
   if (!pathname) return null;
 
-  const isUnderConstruction = true;
+  const isUnderConstruction = false;
 
   if (isUnderConstruction) {
     return (
