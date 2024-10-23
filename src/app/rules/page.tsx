@@ -14,7 +14,7 @@ export default function Rules() {
                 <h3 className="text-xl font-bold mb-2">Article 1.1 :</h3>
                 <p className="text-gray-700 dark:text-gray-400 leading-relaxed">
                   Les pseudos doivent pouvoir être facilement mentionnable, vous
-                  devez donc les modifier. Si cela n&apos;est pas fais, le staff
+                  devez donc les modifier. Si cela nl&#39;est pas fais, le staff
                   se réserve le droit de le modifier lui même.
                 </p>
               </article>
@@ -55,14 +55,14 @@ export default function Rules() {
               <article className="border-l-4 border-primary-500 bg-gray-100 dark:bg-gray-800 p-6 rounded-md shadow-md">
                 <h3 className="text-xl font-bold mb-2">Article 2.4 :</h3>
                 <p className="text-gray-700 dark:text-gray-400 leading-relaxed">
-                  Le spam n&apos;est pas admis sur ce serveur.
+                  Le spam nl&#39;est pas admis sur ce serveur.
                 </p>
               </article>
               <article className="border-l-4 border-primary-500 bg-gray-100 dark:bg-gray-800 p-6 rounded-md shadow-md">
                 <h3 className="text-xl font-bold mb-2">Article 2.5 :</h3>
                 <p className="text-gray-700 dark:text-gray-400 leading-relaxed">
-                  Tous les types d&apos;insultes sont sanctionnés ici (autant
-                  envers le serveur qu&apos;envers la communauté).
+                  Tous les types dl&#39;insultes sont sanctionnés ici (autant
+                  envers le serveur qul&#39;envers la communauté).
                 </p>
               </article>
               <article className="border-l-4 border-primary-500 bg-gray-100 dark:bg-gray-800 p-6 rounded-md shadow-md">
@@ -75,7 +75,7 @@ export default function Rules() {
               <article className="border-l-4 border-primary-500 bg-gray-100 dark:bg-gray-800 p-6 rounded-md shadow-md">
                 <h3 className="text-xl font-bold mb-2">Article 3.2 :</h3>
                 <p className="text-gray-700 dark:text-gray-400 leading-relaxed">
-                  L&apos;utilisation de soundboard est strictement interdite.
+                  Ll&#39;utilisation de soundboard est strictement interdite.
                 </p>
               </article>
               <article className="border-l-4 border-primary-500 bg-gray-100 dark:bg-gray-800 p-6 rounded-md shadow-md">
@@ -94,7 +94,7 @@ export default function Rules() {
               <article className="border-l-4 border-primary-500 bg-gray-100 dark:bg-gray-800 p-6 rounded-md shadow-md">
                 <h3 className="text-xl font-bold mb-2">Article 4.2 :</h3>
                 <p className="text-gray-700 dark:text-gray-400 leading-relaxed">
-                  Aucune publicité n&apos;est autorisée sauf si un des @Créateur
+                  Aucune publicité nl&#39;est autorisée sauf si un des @Créateur
                   vous y a autorisé.
                 </p>
               </article>
@@ -116,7 +116,7 @@ export default function Rules() {
               <article className="border-l-4 border-primary-500 bg-gray-100 dark:bg-gray-800 p-6 rounded-md shadow-md">
                 <h3 className="text-xl font-bold mb-2">Article 1.1 :</h3>
                 <p className="text-gray-700 dark:text-gray-400 leading-relaxed">
-                  Les règles textuelles du discord s&apos;applique aussi en jeu.
+                  Les règles textuelles du discord sl&#39;applique aussi en jeu.
                 </p>
               </article>
               <article className="border-l-4 border-primary-500 bg-gray-100 dark:bg-gray-800 p-6 rounded-md shadow-md">
@@ -128,9 +128,9 @@ export default function Rules() {
               <article className="border-l-4 border-primary-500 bg-gray-100 dark:bg-gray-800 p-6 rounded-md shadow-md">
                 <h3 className="text-xl font-bold mb-2">Article 2.1 :</h3>
                 <p className="text-gray-700 dark:text-gray-400 leading-relaxed">
-                  L&apos;utilisation de bug et use-bug est interdite, à
-                  l&apos;exeption du use-bug ender pearl qui fait
-                  l&apos;exception ici.
+                  Ll&#39;utilisation de bug et use-bug est interdite, à
+                  ll&#39;exeption du use-bug ender pearl qui fait
+                  ll&#39;exception ici.
                 </p>
               </article>
               <article className="border-l-4 border-primary-500 bg-gray-100 dark:bg-gray-800 p-6 rounded-md shadow-md">
@@ -144,14 +144,14 @@ export default function Rules() {
               <article className="border-l-4 border-primary-500 bg-gray-100 dark:bg-gray-800 p-6 rounded-md shadow-md">
                 <h3 className="text-xl font-bold mb-2">Article 2.3 :</h3>
                 <p className="text-gray-700 dark:text-gray-400 leading-relaxed">
-                  L&apos;utilisation de tout type de cheat est interdit et
+                  Ll&#39;utilisation de tout type de cheat est interdit et
                   bannissable.
                 </p>
               </article>
               <article className="border-l-4 border-primary-500 bg-gray-100 dark:bg-gray-800 p-6 rounded-md shadow-md">
                 <h3 className="text-xl font-bold mb-2">Article 2.4 :</h3>
                 <p className="text-gray-700 dark:text-gray-400 leading-relaxed">
-                  L&apos;utilisation excessive de la commande /report sera
+                  Ll&#39;utilisation excessive de la commande /report sera
                   sanctionnée.
                 </p>
               </article>
@@ -201,9 +201,9 @@ export default function Rules() {
               <article className="border-l-4 border-primary-500 bg-gray-100 dark:bg-gray-800 p-6 rounded-md shadow-md">
                 <h3 className="text-xl font-bold mb-2">Article 7.1 :</h3>
                 <p className="text-gray-700 dark:text-gray-400 leading-relaxed">
-                  Les champignons d&apos;eau et de lave dépassant les 10 couches
+                  Les champignons dl&#39;eau et de lave dépassant les 10 couches
                   sont interdits et entraineront des sanctions envers le chef de
-                  faction ainsi qu&apos;un cut du problème.
+                  faction ainsi qul&#39;un cut du problème.
                 </p>
               </article>
               <div>
@@ -237,7 +237,7 @@ export default function Rules() {
                   <article className="border-l-4 border-primary-500 bg-gray-100 dark:bg-gray-800 p-6 rounded-md shadow-md">
                     <h3 className="text-xl font-bold mb-2">Article 1.1 :</h3>
                     <p className="text-gray-700 dark:text-gray-400 leading-relaxed">
-                      La limite de claim d&apos;avant-poste est de 2 en première
+                      La limite de claim dl&#39;avant-poste est de 2 en première
                       ligne.
                     </p>
                   </article>

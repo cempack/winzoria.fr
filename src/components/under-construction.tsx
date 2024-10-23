@@ -24,7 +24,7 @@ const UnderConstruction: React.FC = () => {
     <div style={containerStyle}>
       <h1 style={headingStyle}>En construction</h1>
       <p style={paragraphStyle}>
-        Cette page n'est actuellement pas terminée et en construction
+        Cette page nl&#39;est actuellement pas terminée et en construction
       </p>
     </div>
   );

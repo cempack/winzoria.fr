@@ -51,7 +51,7 @@ export function PlayNow() {
         <DialogHeader>
           <DialogTitle>Rejoindre le serveur</DialogTitle>
           <DialogDescription>
-            Connectez-vous à notre serveur Minecraft en utilisant l&apos;adresse
+            Connectez-vous à notre serveur Minecraft en utilisant ll&#39;adresse
             suivante.
           </DialogDescription>
         </DialogHeader>

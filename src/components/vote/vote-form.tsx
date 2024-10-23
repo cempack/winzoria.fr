@@ -152,7 +152,7 @@ export function VoteForm() {
               name="username"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Nom d&apos;utilisateur Minecraft</FormLabel>
+                  <FormLabel>Nom dl&#39;utilisateur Minecraft</FormLabel>
                   <FormControl>
                     <Input placeholder="cempack" {...field} />
                   </FormControl>

@@ -57,7 +57,7 @@ export default function Ranks() {
                         <CardHeader>
                             <CardTitle className="flex flex-row items-center gap-1">Le kit
                                 Chevalier <ShieldHalf size={18}/></CardTitle>
-                            <CardDescription>Ce kit se débloque à l&apos;achat de son grade.</CardDescription>
+                            <CardDescription>Ce kit se débloque à ll&#39;achat de son grade.</CardDescription>
                         </CardHeader>
                         <CardContent className="space-y-4">
                             <div className="text-md font-semibold mb-2">
@@ -67,7 +67,7 @@ export default function Ranks() {
                                 <li className="text-sm">Une armure complete ( Protection 2, Solidité 1 ) avec une épée (
                                     Tranchant 2, Solidité 1 ) le tout en diamant.
                                 </li>
-                                <li className="text-sm">8 Pommes d&apos;or</li>
+                                <li className="text-sm">8 Pommes dl&#39;or</li>
                                 <li className="text-sm">10 Carotte dorée</li>
                             </ul>
                         </CardContent>
@@ -78,7 +78,7 @@ export default function Ranks() {
                         <CardHeader>
                             <CardTitle className="flex flex-row items-center gap-1">Le kit
                                 Souverain <ShieldHalf size={18}/></CardTitle>
-                            <CardDescription>Ce kit se débloque à l&apos;achat de son grade.</CardDescription>
+                            <CardDescription>Ce kit se débloque à ll&#39;achat de son grade.</CardDescription>
                         </CardHeader>
                         <CardContent className="space-y-4">
                             <div className="text-md font-semibold mb-2">
@@ -88,7 +88,7 @@ export default function Ranks() {
                                 <li className="text-sm">Une armure complete ( Protection 3, Solidité 3 ) avec une épée (
                                     Tranchant 4, Solidité 3 ) le tout en diamant.
                                 </li>
-                                <li className="text-sm">16 Pommes d&apos;or</li>
+                                <li className="text-sm">16 Pommes dl&#39;or</li>
                                 <li className="text-sm">32 Carotte dorée</li>
                                 <li className="text-sm">8 Ender pearl</li>
                             </ul>
@@ -100,7 +100,7 @@ export default function Ranks() {
                         <CardHeader>
                             <CardTitle className="flex flex-row items-center gap-1">Le kit
                                 Roi <Crown size={18}/></CardTitle>
-                            <CardDescription>Ce kit se débloque à l&apos;achat de son grade.</CardDescription>
+                            <CardDescription>Ce kit se débloque à ll&#39;achat de son grade.</CardDescription>
                         </CardHeader>
                         <CardContent className="space-y-4">
                             <div className="text-md font-semibold mb-2">Le kit Roi contient :</div>
@@ -110,7 +110,7 @@ export default function Ranks() {
                                 </li>
                                 <li className="text-sm">Un Arc ( Puissance 3, Frappe 1, Solidité 5 )</li>
                                 <li className="text-sm">Une Pioche ( Efficacité 6, Solidité 10, Fortune 4 )</li>
-                                <li className="text-sm">32 Pommes d&apos;or</li>
+                                <li className="text-sm">32 Pommes dl&#39;or</li>
                                 <li className="text-sm">64 Carotte dorée</li>
                                 <li className="text-sm">8 Ender pearl</li>
                             </ul>
@@ -122,7 +122,7 @@ export default function Ranks() {
                         <CardHeader>
                             <CardTitle className="flex flex-row items-center gap-1">Le kit
                                 Empereur <Castle size={18}/></CardTitle>
-                            <CardDescription>Ce kit se débloque à l&apos;achat de son grade.</CardDescription>
+                            <CardDescription>Ce kit se débloque à ll&#39;achat de son grade.</CardDescription>
                         </CardHeader>
                         <CardContent className="space-y-4">
                             <div className="text-md font-semibold mb-2">Le kit Empereur contient :</div>
@@ -132,7 +132,7 @@ export default function Ranks() {
                                 </li>
                                 <li className="text-sm">Un Arc ( Puissance 5, Frappe 2, Solidité 5, Infinité 1 )</li>
                                 <li className="text-sm">Une Pioche ( Efficacité 7, Solidité 15, Fortune 4 )</li>
-                                <li className="text-sm">48 Pommes d&apos;or</li>
+                                <li className="text-sm">48 Pommes dl&#39;or</li>
                                 <li className="text-sm">64 Carotte dorée</li>
                                 <li className="text-sm">16 Ender pearl</li>
                                 <li className="text-sm">2 Œuf de Creeper</li>
@@ -146,7 +146,7 @@ export default function Ranks() {
                         <CardHeader>
                             <CardTitle className="flex flex-row items-center gap-1">Le kit
                                 Légende <Castle size={18}/></CardTitle>
-                            <CardDescription>Ce kit se débloque à l&apos;achat de son grade.</CardDescription>
+                            <CardDescription>Ce kit se débloque à ll&#39;achat de son grade.</CardDescription>
                         </CardHeader>
                         <CardContent className="space-y-4">
                             <div className="text-md font-semibold mb-2">Le kit Légende contient :</div>
@@ -156,7 +156,7 @@ export default function Ranks() {
                                 </li>
                                 <li className="text-sm">Un Arc ( Puissance 5, Frappe 3, Solidité 6, Infinité 1 )</li>
                                 <li className="text-sm">Une Pioche ( Efficacité 8, Solidité 15, Fortune 4 )</li>
-                                <li className="text-sm">64 Pommes d&apos;or</li>
+                                <li className="text-sm">64 Pommes dl&#39;or</li>
                                 <li className="text-sm">128 Carotte dorée</li>
                                 <li className="text-sm">32 Ender pearl</li>
                                 <li className="text-sm">6 Œuf de Creeper</li>
@@ -171,7 +171,7 @@ export default function Ranks() {
                         <CardHeader>
                             <CardTitle className="flex flex-row items-center gap-1">Le kit
                                 Alchimiste <ShieldHalf size={18}/></CardTitle>
-                            <CardDescription>Ce kit se débloque au palier 5 de la quête d&apos;Alchimiste (/q en
+                            <CardDescription>Ce kit se débloque au palier 5 de la quête dl&#39;Alchimiste (/q en
                                 jeu).</CardDescription>
                         </CardHeader>
                         <CardContent className="space-y-4">
